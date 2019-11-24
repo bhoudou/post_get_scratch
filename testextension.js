@@ -1,45 +1,41 @@
-// Scratch Extension to demonstrate some simple web browser functionality
-// 2014 Shane M. Clements
-
 (function(ext) {
-    ext.alert = function(message) {
-        alert(message);
-    };
+    // Cleanup function when the extension is unloaded
+    ext._shutdown = function() {};
 
-    ext.confirm = function(question) {
-        return confirm(question);
-    };
-
-    ext.ask = function(question) {
-        return prompt(question);
-    };
-
-    ext.setTitle = function(title) {
-        window.document.title = title;
-    };
-
-    ext.openTab = function(location) {
-        window.open(location, '_blank');
-    };
-
-    ext._shutdown = function() {
-        console.log('Shutting down...');
-    };
-
+    // Status reporting code
+    // Use this to report missing hardware, plugin or unsupported browser
     ext._getStatus = function() {
         return {status: 2, msg: 'Ready'};
     };
 
+    ext.set_gpio = function(gpio,etat,callback) {
+        // Make an AJAX call to the Open Weather Maps API
+        $.ajax({
+              url: 'http://192.168.1.43/gpio?id='+gpio+'&etat='+etat+'&token=123abCde',
+              dataType: 'text',
+              success: function( data ) {
+				 callback = data
+              }
+        });
+    };
+ ext.set_gpio2 = function(gpio,etat,callback) {
+        // Make an AJAX call to the Open Weather Maps API
+        $.ajax({
+              url: 'http://192.168.1.43/gpio?id='+gpio+'&etat='+etat+'&token=123abCde',
+              dataType: 'text',
+              success: function( data ) {
+				 callback = data 
+              }
+        });
+    };
+    // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            [' ', 'alert %s', 'alert', ''],
-            ['b', 'confirm %s', 'confirm', 'Are you sure?'],
-            ['r', 'ask %s', 'ask', 'How are you?'],
-            [' ', 'set window title to %s', 'setTitle', 'title'],
-            [' ', 'open tab with %s', 'openTab', 'https://twitter.com/scratchteam']
+            ['w', 'Gpio : %s etat : %n','set_gpio','D7','1'],
+            ['r', 'Gpio : %s etat : %n','set_gpio2','D7','1'],
         ]
     };
 
-    ScratchExtensions.register('Browser Stuff', descriptor, ext);
+    // Register the extension
+    ScratchExtensions.register('GPIOESP8266', descriptor, ext);
 })({});
-
