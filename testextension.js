@@ -16,6 +16,7 @@
               success: function( data ) {
 				 callback = data
               }
+	return callback
         });
     };
  ext.set_gpio2 = function(gpio,etat,callback) {
@@ -26,6 +27,7 @@
               success: function( data ) {
 				 callback = data 
               }
+	return callback
         });
     };
     // Block and block menu descriptions
