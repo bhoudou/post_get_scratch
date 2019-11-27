@@ -8,25 +8,24 @@
         return {status: 2, msg: 'Ready'};
     };
 
-    ext.set_gpio = function(gpio,etat,callback) {
+    ext.set_gpio = function(gpio,etat) {
         // Make an AJAX call to the Open Weather Maps API
         $.ajax({
               url: 'http://192.168.1.43/gpio?id='+gpio+'&etat='+etat+'&token=123abCde',
               dataType: 'text',
               success: function( data ) {
-				 callback = data
+		       return data;
               }
 
         });
     };
- ext.set_gpio2 = function(gpio,etat,callback) {
+ ext.set_gpio2 = function(gpio,etat) {
         // Make an AJAX call to the Open Weather Maps API
         $.ajax({
               url: 'http://192.168.1.43/gpio?id='+gpio+'&etat='+etat+'&token=123abCde',
               dataType: 'text',
               success: function( data ) {
-				 callback = data
-				 return callback;
+				 return data;
               }
 			
         });
