@@ -25,8 +25,8 @@
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            [' ', 'Moteur : %s.moteur valeur : %n','set_gpio','gauche','89'],
-            [' ', 'gauche : %s droite : %n','set_gpio2','89','89'],
+            [' ', 'Moteur : %m.moteur valeur : %n','set_gpio','gauche','89'],
+            [' ', 'gauche : %n droite : %n','set_gpio2','89','89'],
         ],
 	menus: {
         moteur: ['gauche', 'droite'],
