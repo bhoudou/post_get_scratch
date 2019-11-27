@@ -19,22 +19,18 @@
 
         });
     };
- ext.set_gpio2 = function(gpio,etat) {
+ ext.set_gpio2 = function(gauche,droite) {
         // Make an AJAX call to the Open Weather Maps API
         $.ajax({
-              url: 'http://192.168.1.43/gpio?id='+gpio+'&etat='+etat+'&token=123abCde',
+              url: 'http://192.168.1.43/gauche?id='+gauche+'&droite='+droite+'&token=123abCde',
               type : 'POST',
-              success: function( data ) {
-				 return data;
-              }
-			
-        });
+	        });
     };
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
             [' ', 'Moteur : %s etat : %n','set_gpio','D7','1'],
-            [' ', 'Gpio : %s etat : %n','set_gpio2','D7','1'],
+            [' ', 'gauche : %s droite : %n','set_gpio2','89','89'],
         ]
     };
 
