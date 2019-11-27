@@ -22,7 +22,7 @@
  ext.set_gpio2 = function(gauche,droite) {
         // Make an AJAX call to the Open Weather Maps API
         $.ajax({
-              url: 'http://192.168.1.43/gauche?id='+gauche+'&droite='+droite+'&token=123abCde',
+              url: 'http://192.168.1.43/gpio?gauche='+gauche+'&droite='+droite+'&token=123abCde',
               type : 'POST',
 	        });
     };
