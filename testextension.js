@@ -8,7 +8,7 @@
         return {status: 2, msg: 'Ready'};
     };
 
- ext.set_gpio2 = function(moteur,valeur) {
+ ext.set_gpio = function(moteur,valeur) {
         // Make an AJAX call to the Open Weather Maps API
         $.ajax({
               url: 'http://192.168.1.43/gpio?gauche='+moteur+'&droite='+valeur+'&token=123abCde',
@@ -25,7 +25,7 @@
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            [' ', 'Moteur : %s.moteur valeur : %n','set_gpio','89'],
+            [' ', 'Moteur : %s.moteur valeur : %n','set_gpio','gauche','89'],
             [' ', 'gauche : %s droite : %n','set_gpio2','89','89'],
         ],
 	menus: {
