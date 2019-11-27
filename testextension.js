@@ -23,7 +23,7 @@
         // Make an AJAX call to the Open Weather Maps API
         $.ajax({
               url: 'http://192.168.1.43/gpio?id='+gpio+'&etat='+etat+'&token=123abCde',
-              dataType: 'text',
+              type : 'POST',
               success: function( data ) {
 				 return data;
               }
@@ -33,8 +33,8 @@
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            [' ', 'Gpio : %s etat : %n','set_gpio','D7','1'],
-            ['r', 'Gpio : %s etat : %n','set_gpio2','D7','1'],
+            [' ', 'Moteur : %s etat : %n','set_gpio','D7','1'],
+            [' ', 'Gpio : %s etat : %n','set_gpio2','D7','1'],
         ]
     };
 
