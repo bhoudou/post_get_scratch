@@ -27,10 +27,10 @@
         blocks: [
             [' ', 'Moteur : %s.moteur valeur : %n','set_gpio','89'],
             [' ', 'gauche : %s droite : %n','set_gpio2','89','89'],
-        ]
-
+        ],
 	menus: {
         moteur: ['gauche', 'droite'],
+	},
     };
     // Register the extension
     ScratchExtensions.register('GPIOESP8266', descriptor, ext);
