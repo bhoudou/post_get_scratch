@@ -1,6 +1,4 @@
 (function(ext) {
-    // Cleanup function when the extension is unloaded
-    ext._shutdown = function() {};
   var Data = null;
   function updateLocation() {
     $.ajax({
@@ -33,6 +31,12 @@ ext.getInfo = function(stat) {
       return Data[stat].toFixed(6).toString();
     else
       return Data[stat].toFixed(2).toString();
+  };
+	  ext._shutdown = function() {
+    if (poller) {
+      clearInterval(poller);
+      poller = null;
+    }
   };
     // Block and block menu descriptions
     var descriptor = {
