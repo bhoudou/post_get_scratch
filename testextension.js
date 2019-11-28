@@ -45,6 +45,7 @@ ext.getInfo = function(stat) {
         ],
 	menus: {
         moteur: ['gauche', 'droite'],
+	loc: ['x', 'y', 'angle'],
 	},
     };
     // Register the extension
