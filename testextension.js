@@ -11,19 +11,17 @@
         Data = data;
       },
       error: function(jqxhr, textStatus, error) {
-        console.log("Error downloading ISS data");
+        console.log("Error downloading data");
       }
     });
   }
  ext.set_gpio = function(moteur,valeur) {
-        // Make an AJAX call to the Open Weather Maps API
         $.ajax({
               url: 'http://192.168.1.43/gpio?gauche='+moteur+'&droite='+valeur+'&token=123abCde',
               type : 'POST',
 	        });
     };
  ext.set_gpio2 = function(gauche,droite) {
-        // Make an AJAX call to the Open Weather Maps API
         $.ajax({
               url: 'http://192.168.1.43/gpio?gauche='+gauche+'&droite='+droite+'&token=123abCde',
               type : 'POST',
@@ -32,16 +30,16 @@
 ext.getInfo = function(stat) {
     if (!Data) return;
     if (stat === "x" || stat === "y")
-      return issData[stat].toFixed(6).toString();
+      return Data[stat].toFixed(6).toString();
     else
-      return issData[stat].toFixed(2).toString();
+      return Data[stat].toFixed(2).toString();
   };
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
 		[' ', 'Moteur : %m.moteur valeur : %n','set_gpio','gauche','89'],
 		[' ', 'gauche : %n droite : %n','set_gpio2','89','89'],
-		['r', 'current ISS %m.loc', 'getInfo', 'longitude'],
+		['r', 'current ISS %m.loc', 'getInfo', 'x'],
         ],
 	menus: {
         moteur: ['gauche', 'droite'],
