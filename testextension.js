@@ -27,12 +27,9 @@
     };
 ext.getInfo = function(stat) {
     if (!Data) return;
-    if (stat === "x" || stat === "y" || stat === "angle")
-      return Data[stat].toFixed(6).toString();
-    else
-      return Data[stat].toFixed(2).toString();
+    return Data[stat].toFixed(2).toString();
   };
-	  ext._shutdown = function() {
+ext._shutdown = function() {
     if (poller) {
       clearInterval(poller);
       poller = null;
@@ -43,11 +40,11 @@ ext.getInfo = function(stat) {
         blocks: [
 		[' ', 'Moteur : %m.moteur valeur : %n','set_gpio','gauche','89'],
 		[' ', 'gauche : %n droite : %n','set_gpio2','89','89'],
-		['r', 'current ISS %m.loc', 'getInfo', 'x'],
+		['r', 'ID: %n valeur: %m.loc', 'getInfo','0', 'x'],
         ],
 	menus: {
-        moteur: ['gauche', 'droite'],
-				loc: ['x', 'y', 'angle'],
+       		moteur: ['gauche', 'droite'],
+		loc: ['x', 'y', 'angle'],
 	},
     };
     // Register the extension
