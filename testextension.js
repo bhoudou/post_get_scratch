@@ -12,7 +12,7 @@
         console.log("Error downloading data");
       }
     });
-  }
+  
  ext.set_gpio = function(moteur,valeur) {
         $.ajax({
               url: 'http://192.168.1.43/gpio?gauche='+moteur+'&droite='+valeur+'&token=123abCde',
@@ -27,7 +27,7 @@
     };
 ext.getInfo = function(stat) {
     if (!Data) return;
-    if (stat === "x" || stat === "y")
+    if (stat === "x" || stat === "y" || stat === "angle")
       return Data[stat].toFixed(6).toString();
     else
       return Data[stat].toFixed(2).toString();
@@ -38,7 +38,7 @@ ext.getInfo = function(stat) {
       poller = null;
     }
   };
-    // Block and block menu descriptions
+// Block and block menu descriptions
     var descriptor = {
         blocks: [
 		[' ', 'Moteur : %m.moteur valeur : %n','set_gpio','gauche','89'],
@@ -47,7 +47,7 @@ ext.getInfo = function(stat) {
         ],
 	menus: {
         moteur: ['gauche', 'droite'],
-	loc: ['x', 'y', 'angle'],
+				loc: ['x', 'y', 'angle'],
 	},
     };
     // Register the extension
