@@ -31,7 +31,7 @@
     };
 ext.getInfo = function(stat) {
     if (!Data) return;
-    if (stat === "longitude" || stat === "latitude")
+    if (stat === "x" || stat === "y")
       return issData[stat].toFixed(6).toString();
     else
       return issData[stat].toFixed(2).toString();
