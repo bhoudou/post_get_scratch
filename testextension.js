@@ -12,7 +12,7 @@
         console.log("Error downloading data");
       }
     });
-  
+  }
  ext.set_gpio = function(moteur,valeur) {
         $.ajax({
               url: 'http://192.168.1.43/gpio?gauche='+moteur+'&droite='+valeur+'&token=123abCde',
