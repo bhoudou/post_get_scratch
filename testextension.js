@@ -60,9 +60,9 @@
     };
     // Register the extension
     ScratchExtensions.register('GPIOESP8266', descriptor, ext);
-	updateLocation();
-	var poller = setInterval(updateLocation, 2000);
-	
-	
+  updateIDLocation();
+  var poller = setInterval(updateIDLocation, 2000);
+
 })({});
+
 
