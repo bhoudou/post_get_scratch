@@ -16,10 +16,7 @@
 
   ext.getIDInfo = function(id,stat) {
     if (!IDData) return;
-    if (stat === "longitude" || stat === "latitude")
-      return IDData[stat].toFixed(6).toString();
-    else
-      return IDData[stat].toFixed(2).toString();
+    return IDData[stat].toFixed(1).toString();
   };
 
   ext._getStatus = function() {
