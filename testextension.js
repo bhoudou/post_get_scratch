@@ -44,7 +44,7 @@ ext._shutdown = function() {
         ],
 	menus: {
        		moteur: ['gauche', 'droite'],
-		loc: ['x', 'y', 'angle'],
+		loc: ['x', 'y', 'angle']
 	},
     };
     // Register the extension
