@@ -14,7 +14,7 @@
     });
   }
 
-  ext.getIDInfo = function(stat) {
+  ext.getIDInfo = function(id,stat) {
     if (!IDData) return;
     if (stat === "longitude" || stat === "latitude")
       return IDData[stat].toFixed(6).toString();
