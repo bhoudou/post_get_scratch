@@ -1,18 +1,38 @@
 (function(ext) {
-  var Data = null;
-  function updateLocation() {
+  var IDData = null;
+  function updateIDLocation() {
     $.ajax({
       type: "GET",
       dataType: "json",
       url: "https://bhoudou.github.io/post_get_scratch/positions.json",
       success: function(data) {
-        Data = data;
+        IDData = data;
       },
       error: function(jqxhr, textStatus, error) {
-        console.log("Error downloading data");
+        console.log("Error downloading ID data");
       }
     });
   }
+
+  ext.getIDInfo = function(stat) {
+    if (!IDData) return;
+    if (stat === "longitude" || stat === "latitude")
+      return IDData[stat].toFixed(6).toString();
+    else
+      return IDData[stat].toFixed(2).toString();
+  };
+
+  ext._getStatus = function() {
+    return { status:2, msg:'Ready' };
+  };
+
+  ext._shutdown = function() {
+    if (poller) {
+      clearInterval(poller);
+      poller = null;
+    }
+  };
+
  ext.set_gpio = function(moteur,valeur) {
         $.ajax({
               url: 'http://192.168.1.43/gpio?gauche='+moteur+'&droite='+valeur+'&token=123abCde',
@@ -25,22 +45,13 @@
               type : 'POST',
 	        });
     };
-ext.getInfo = function(stat) {
-    if (!Data) return;
-    return Data[stat].toFixed(2).toString();
-  };
-ext._shutdown = function() {
-    if (poller) {
-      clearInterval(poller);
-      poller = null;
-    }
-  };
+
 // Block and block menu descriptions
     var descriptor = {
         blocks: [
 		[' ', 'Moteur : %m.moteur valeur : %n','set_gpio','gauche','89'],
 		[' ', 'gauche : %n droite : %n','set_gpio2','89','89'],
-		['r', 'ID: %n valeur: %m.loc', 'getInfo','0', 'x'],
+		['r', 'ID: %n valeur: %m.loc', 'getIDInfo','0', 'x'],
         ],
 	menus: {
        		moteur: ['gauche', 'droite'],
