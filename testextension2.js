@@ -1,27 +1,25 @@
 (function(ext) {
-  var issData = null;
-
-  function updateISSLocation() {
+  var IDData = null;
+  function updateIDLocation() {
     $.ajax({
       type: "GET",
       dataType: "json",
-      //url: "http://api.open-notify.org/iss-now.json",
       url: "https://bhoudou.github.io/post_get_scratch/positions.json",
       success: function(data) {
-        issData = data;
+        IDData = data;
       },
       error: function(jqxhr, textStatus, error) {
-        console.log("Error downloading ISS data");
+        console.log("Error downloading ID data");
       }
     });
   }
 
-  ext.getISSInfo = function(stat) {
-    if (!issData) return;
+  ext.getIDInfo = function(stat) {
+    if (!IDData) return;
     if (stat === "longitude" || stat === "latitude")
-      return issData[stat].toFixed(6).toString();
+      return IDData[stat].toFixed(6).toString();
     else
-      return issData[stat].toFixed(2).toString();
+      return IDData[stat].toFixed(2).toString();
   };
 
   ext._getStatus = function() {
@@ -37,18 +35,17 @@
 
   var descriptor = {
     blocks: [
-      ['r', 'current ISS %m.loc', 'getISSInfo', 'x']
+      ['r', 'current ID %m.loc', 'getIDInfo', 'x']
     ],
     menus: {
       loc: ['x', 'y', 'angle']
     },
-    url: 'http://khanning.github.io/scratch-isstracker-extension'
   };
 
-  ScratchExtensions.register('ISS Tracker', descriptor, ext);
+  ScratchExtensions.register('ID Tracker', descriptor, ext);
 
-  updateISSLocation();
-  var poller = setInterval(updateISSLocation, 2000);
+  updateIDLocation();
+  var poller = setInterval(updateIDLocation, 2000);
 
 })({});
 
