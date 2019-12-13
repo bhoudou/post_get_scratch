@@ -4,7 +4,7 @@
     $.ajax({
       type: "GET",
       dataType: "json",
-      url: "https://bhoudou.github.io/post_get_scratch/positions.json",
+      url: "https://bhoudou.github.io/post_get_scratch/data.json",
       success: function(data) {
         IDData = data;
       },
