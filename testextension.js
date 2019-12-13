@@ -16,7 +16,7 @@
 
   ext.getIDInfo = function(id,stat) {
     if (!IDData) return;
-    return IDData[stat].toFixed(1).toString();
+    return IDData[id].IDData[0].IDData[stat].toFixed(1).toString();
   };
 
   ext._getStatus = function() {
@@ -48,7 +48,7 @@
         blocks: [
 		[' ', 'Moteur : %m.moteur valeur : %n','set_gpio','gauche','89'],
 		[' ', 'gauche : %n droite : %n','set_gpio2','89','89'],
-		['r', 'ID: %n valeur: %m.loc', 'getIDInfo','0', 'x'],
+		['r', 'ID: %n valeur: %m.loc', 'getIDInfo','12', 'x'],
         ],
 	menus: {
        		moteur: ['gauche', 'droite'],
