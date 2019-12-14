@@ -8,20 +8,17 @@
       success: function(data) {
         IDData = data;
       },
-      error: function(jqxhr, textStatus, error) {
-        console.log("Error downloading ID data");
-	  }
     });
   }
 
-  ext.getIDInfo = function(id,stat) {
+  ext.getIDInfo = function(id,info) {
     if (!IDData) return;
-    return IDData[id].IDData[0].IDData[stat].toFixed(1).toString();
+    return IDData[0].IDData[info].toFixed(1).toString();
   };
 
   ext._getStatus = function() {
-    if (!IDData) return { status:2, msg:'Ready' };
-	  return { status:1, msg:'NOT Ready' };
+    if (!IDData) return { status:1, msg:'no Data' };
+	  return { status:2, msg:'Ready' };
   };
 
   ext._shutdown = function() {
