@@ -16,6 +16,7 @@
 	  {
 		  var temp = IDData.getJSONObject("data");
 		  return temp[0].temp[info].toFixed(1).toString();
+	  }
   };
 
   ext._getStatus = function() {
