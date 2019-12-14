@@ -12,7 +12,7 @@
   }
 
   ext.getIDInfo = function(id,info) {
-	  return IDData;
+	  return IDData.toString();
     //if (!IDData) return;
 	//  {
 	//	  var temp = IDData.getJSONObject("data");
