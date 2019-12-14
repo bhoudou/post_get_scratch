@@ -13,7 +13,9 @@
 
   ext.getIDInfo = function(id,info) {
     if (!IDData) return;
-    return IDData[0].IDData[info].toFixed(1).toString();
+	  {
+		  var temp = IDData.getJSONObject("data");
+		  return temp[0].temp[info].toFixed(1).toString();
   };
 
   ext._getStatus = function() {
