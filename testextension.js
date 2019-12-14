@@ -15,8 +15,13 @@
     if (!IDData) return;
 	  {
 		  var temp = IDData["data"];
-		  var temp2 = temp[0];
-		  return temp2[info].toFixed(1).toString();
+		    for(int i = 0 ; i<temp.length;i++){
+			var temp2 = temp[i];
+			if(id==temp2["id"])
+  			return temp2[info].toFixed(1).toString();
+			}
+		  
+		
 	  }
   };
 
