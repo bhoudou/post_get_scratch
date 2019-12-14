@@ -12,11 +12,12 @@
   }
 
   ext.getIDInfo = function(id,info) {
-    if (!IDData) return;
-	  {
-		  var temp = IDData.getJSONObject("data");
-		  return temp[0].temp[info].toFixed(1).toString();
-	  }
+	  return IDData;
+    //if (!IDData) return;
+	//  {
+	//	  var temp = IDData.getJSONObject("data");
+	//	  return temp[0].temp[info].toFixed(1).toString();
+	  //}
   };
 
   ext._getStatus = function() {
