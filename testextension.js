@@ -7,12 +7,10 @@
       url: "https://bhoudou.github.io/post_get_scratch/data.json",
       success: function(data) {
         IDData = data;
-	return { status:2, msg:'Ready' };
       },
       error: function(jqxhr, textStatus, error) {
         console.log("Error downloading ID data");
-	return { status:1, msg:'NOT Ready' };
-      }
+	  }
     });
   }
 
@@ -22,7 +20,8 @@
   };
 
   ext._getStatus = function() {
-    return { status:2, msg:'Ready' };
+    if (!IDData) return { status:2, msg:'Ready' };
+	  return { status:1, msg:'NOT Ready' };
   };
 
   ext._shutdown = function() {
