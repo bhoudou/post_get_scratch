@@ -4,7 +4,8 @@
     $.ajax({
       type: "GET",
       dataType: "json",
-      url: "http://192.168.1.45/data.json",
+      //url: "http://192.168.1.45/data.json",
+      url: "http://debian.local/data.json",
       //url: "https://bhoudou.github.io/post_get_scratch/data.json",
       success: function(data) {
         IDData = data;
