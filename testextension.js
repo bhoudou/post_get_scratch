@@ -3,6 +3,7 @@
   var texterreur="no error";
 	fetch("http://192.168.1.45/data.json").then(function (response) {
     return response.json();
+		    console.response.json();
 }).then(function (json) {
     console.log(json);
 });
