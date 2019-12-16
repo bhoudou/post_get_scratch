@@ -3,31 +3,19 @@
   var texterreur="no error";
 
   function updateIDLocation() {
-
-fetch('http://192.168.1.45/data.json').then(response => {
-    return response.json();
-  })
-  .then(data => {
-    IDData = data;
-    //console.log(data);
-  })
-  .catch(err => {
-	 IDData = data;
-    // Do something for an error here
-  })
-    //$.ajax({
-      //type: "GET",
-      //dataType: "json",
-      //crossDomain: true,
-      //url: 'http://192.168.1.45/data.json',
+    $.ajax({
+      type: "GET",
+      dataType: "json",
+      crossDomain: true,
+      url: 'http://192.168.1.45/data.json',
       //url: "smb://192.168.1.45/partage_public/data.json",
       //url: "https://bhoudou.github.io/post_get_scratch/data.json",
-      //success: function(data) {IDData = data;},
-      //error: function(data, textStatus, errorThrown) { 
-	     //IDData = 9999;
-	     //console.log(errorThrown);
+      success: function(data) {IDData = data;},
+      error: function(data, textStatus, errorThrown) { 
+	     IDData = 9999;
+	     console.log(errorThrown);
 	     //alert("Status: " + textStatus); alert("Error: " + errorThrown); 
-             //texterreur="Error : "+textStatus+" type : " + errorThrown.responseText;      } 
+             texterreur="Error : "+textStatus+" type : " + errorThrown.responseText;      } 
     //});
   }
 
