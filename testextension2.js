@@ -15,7 +15,7 @@
       error: function(data, textStatus, errorThrown) { 
 	     IDData = 9999;
 	     console.log(errorThrown);
-	     alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+	     //alert("Status: " + textStatus); alert("Error: " + errorThrown); 
              texterreur="Error : "+textStatus+" type : " + errorThrown.responseText;      } 
     });
   }
