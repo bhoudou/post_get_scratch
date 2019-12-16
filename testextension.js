@@ -16,7 +16,7 @@
 	     console.log(errorThrown);
 	     //alert("Status: " + textStatus); alert("Error: " + errorThrown); 
              texterreur="Error : "+textStatus+" type : " + errorThrown.responseText;      } 
-    //});
+    });
   }
 
   ext.getIDInfo = function(id,info) {
