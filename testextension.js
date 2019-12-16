@@ -6,12 +6,12 @@
     $.ajax({
       type: "GET",
       jsonp: "jsonpcallback",
-      //dataType: "jsonp",
+      dataType: "jsonp",
       crossDomain: true,
       url: 'http://192.168.1.45/data.json',
       //url: "smb://192.168.1.45/partage_public/data.json",
       //url: "https://bhoudou.github.io/post_get_scratch/data.json",
-      success: function(data) {IDData = data;},
+      success: function(data) {IDData = data;console.log(data);},
       error: function(data, textStatus, errorThrown) { 
 	     IDData = 9999;
 	     console.log(errorThrown);
