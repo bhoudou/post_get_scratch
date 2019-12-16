@@ -10,9 +10,9 @@
       //url: "https://bhoudou.github.io/post_get_scratch/data.json",
       success: function(data) {IDData = data;},
       error: function(data, textStatus, errorThrown) { 
-	      IDData = 9999;
-        alert("Status: " + textStatus); alert("Error: " + errorThrown); 
-      var texterreur="Error: " + errorThrown;
+	     IDData = 9999;
+             //alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+             var texterreur="Error: " + errorThrown;
       } 
     });
   }
