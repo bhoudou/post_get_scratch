@@ -8,7 +8,7 @@
       crossDomain: true,
       headers: {
        // 'Authorization': 'Bearer ' + userToken,
-        'Access-Control-Allow-Origin': 'http://192.168.1.45/'
+        'Access-Control-Allow-Origin': '*'
       },
      url: "http://192.168.1.45/data.json",
       success: function(data) {
