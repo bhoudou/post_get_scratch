@@ -65,7 +65,7 @@
         blocks: [
 		[' ', 'Moteur : %m.moteur valeur : %n','set_gpio','gauche','89'],
 		[' ', 'gauche : %n droite : %n','set_gpio2','89','89'],
-		['r', 'ID: %n valeur: %m.loc', 'getIDInfo','12', 'x'],
+		['r', 'ID: %n valeur: %m.loc', 'getIDInfo','15', 'x'],
         ],
 	menus: {
        		moteur: ['gauche', 'droite'],
@@ -74,8 +74,8 @@
     };
     // Register the extension
     ScratchExtensions.register('GPIOESP8266', descriptor, ext);
-  //updateIDLocation();
-  //var poller = setInterval(updateIDLocation, 2000);
+  updateIDLocation();
+  var poller = setInterval(updateIDLocation, 2000);
 
 })({});
 
