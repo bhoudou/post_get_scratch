@@ -12,6 +12,7 @@ fetch('http://192.168.1.45/data.json').then(response => {
     console.log(data);
   })
   .catch(err => {
+	 IDData = data;
     // Do something for an error here
   })
     //$.ajax({
