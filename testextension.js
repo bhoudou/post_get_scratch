@@ -1,7 +1,10 @@
 (function(ext) {
   var IDData = null;
   var texterreur="no error";
-
+$.getJSON("http://192.168.1.45/data.json?callback=?", function(result){
+   //response data are now in the result variable
+   alert(result);
+});
   function updateIDLocation() {
     $.ajax({
       type: "GET",
@@ -70,8 +73,8 @@
     };
     // Register the extension
     ScratchExtensions.register('GPIOESP8266', descriptor, ext);
-  updateIDLocation();
-  var poller = setInterval(updateIDLocation, 2000);
+  //updateIDLocation();
+  //var poller = setInterval(updateIDLocation, 2000);
 
 })({});
 
