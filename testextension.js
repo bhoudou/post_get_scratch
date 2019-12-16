@@ -1,17 +1,18 @@
 (function(ext) {
   var IDData = null;
   var texterreur="no error";
-$.getJSON("http://192.168.1.45/data.json?callback=?", function(result){
+
+  function updateIDLocation() {
+   $.getJSON("http://192.168.1.45/data.json?callback=?", function(result){
    //response data are now in the result variable
    alert(result);
-});
-  function updateIDLocation() {
+      });
     $.ajax({
       type: "GET",
       jsonp: "jsonpcallback",
       dataType: "jsonp",
       crossDomain: true,
-      url: 'http://192.168.1.45/data.json',
+      //url: 'http://192.168.1.45/data.json',
       //url: "smb://192.168.1.45/partage_public/data.json",
       //url: "https://bhoudou.github.io/post_get_scratch/data.json",
       success: function(data) {IDData = data;},
@@ -73,8 +74,8 @@ $.getJSON("http://192.168.1.45/data.json?callback=?", function(result){
     };
     // Register the extension
     ScratchExtensions.register('GPIOESP8266', descriptor, ext);
-  //updateIDLocation();
-  //var poller = setInterval(updateIDLocation, 2000);
+  updateIDLocation();
+  var poller = setInterval(updateIDLocation, 2000);
 
 })({});
 
