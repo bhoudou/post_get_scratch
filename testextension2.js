@@ -1,24 +1,24 @@
 (function(ext) {
   var IDData = null;
   var texterreur="no error";
-
   function updateIDLocation() {
-
-
     $.ajax({
       type: "GET",
       dataType: "json",
       crossDomain: true,
- headers: {
+      headers: {
         'Authorization': 'Bearer ' + userToken,
         'Access-Control-Allow-Origin': 'http://192.168.1.45/'
-    },
+      },
      url: "http://192.168.1.45/data.json",
-      success: function(data) {console.log(data);IDData = data;},
+      success: function(data) {
+	      console.log(data);
+	      IDData = data;
+      },
       error: function(data, textStatus, errorThrown) { 
 	     IDData = 9999;
 	     console.log(errorThrown);
-	     //alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+	     alert("Status: " + textStatus); alert("Error: " + errorThrown); 
              texterreur="Error : "+textStatus+" type : " + errorThrown.responseText;      } 
     });
   }
