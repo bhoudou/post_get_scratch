@@ -1,12 +1,17 @@
 (function(ext) {
   var IDData = null;
   var texterreur="no error";
+	fetch("http://192.168.1.45/data.json").then(function (response) {
+    return response.json();
+}).then(function (json) {
+    console.log(json);
+});
   function updateIDLocation() {
     $.ajax({
       type: "GET",
       dataType: "json",
       crossDomain: true,
-      url: 'https://192.168.1.45/data.json',
+      url: 'http://192.168.1.45/data.json',
       //url: "smb://192.168.1.45/partage_public/data.json",
       //url: "https://bhoudou.github.io/post_get_scratch/data.json",
       success: function(data) {IDData = data;},
@@ -69,7 +74,7 @@
     };
     // Register the extension
     ScratchExtensions.register('GPIOESP8266', descriptor, ext);
-  updateIDLocation();
+  //updateIDLocation();
   var poller = setInterval(updateIDLocation, 2000);
 
 })({});
