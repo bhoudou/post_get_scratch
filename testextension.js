@@ -4,7 +4,8 @@
   function updateIDLocation() {
     $.ajax({
       type: "GET",
-      dataType: "jsonp",
+      dataType: "json",
+      crossDomain: true,
       url: 'https://192.168.1.45/data.json',
       //url: "smb://192.168.1.45/partage_public/data.json",
       //url: "https://bhoudou.github.io/post_get_scratch/data.json",
