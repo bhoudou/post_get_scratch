@@ -1,13 +1,19 @@
 (function(ext) {
-  var IDData = 9999;
+  var IDData = null;
   var texterreur="no error";
 
   function updateIDLocation() {
-	fetch("http://192.168.1.45/data.json").then(function (response) {
-		IDData =  response.json();
-		}).then(function (json) {
-		console.log(json);
-	});  
+
+fetch('http://192.168.1.45/data.json').then(response => {
+    return response.json();
+  })
+  .then(data => {
+    IDData = data;
+    console.log(data);
+  })
+  .catch(err => {
+    // Do something for an error here
+  })
     //$.ajax({
       //type: "GET",
       //dataType: "json",
