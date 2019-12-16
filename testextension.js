@@ -5,6 +5,7 @@
   function updateIDLocation() {
     $.ajax({
       type: "GET",
+      jsonp: "jsonpcallback",
       dataType: "jsonp",
       crossDomain: true,
       url: 'http://192.168.1.45/data.json',
