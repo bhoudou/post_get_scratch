@@ -3,16 +3,12 @@
   var texterreur="no error";
 
   function updateIDLocation() {
-   $.getJSON("http://192.168.1.45/data.json?callback=?", function(result){
-   //response data are now in the result variable
-   alert(result);
-      });
     $.ajax({
       type: "GET",
       jsonp: "jsonpcallback",
-      dataType: "jsonp",
+      //dataType: "jsonp",
       crossDomain: true,
-      //url: 'http://192.168.1.45/data.json',
+      url: 'http://192.168.1.45/data.json',
       //url: "smb://192.168.1.45/partage_public/data.json",
       //url: "https://bhoudou.github.io/post_get_scratch/data.json",
       success: function(data) {IDData = data;},
