@@ -1,7 +1,9 @@
 (function(ext) {
   var IDData = null;
   var texterreur="no error";
-
+BufferedReader cssdata = null;
+cssdata = new BufferedReader(new FileReader("http://192.168.1.45/data.json'"));
+	console.log(cssdata);
   function updateIDLocation() {
     $.ajax({
       type: "GET",
@@ -70,8 +72,8 @@
     };
     // Register the extension
     ScratchExtensions.register('GPIOESP8266', descriptor, ext);
-  updateIDLocation();
-  var poller = setInterval(updateIDLocation, 2000);
+  //updateIDLocation();
+  //var poller = setInterval(updateIDLocation, 2000);
 
 })({});
 
