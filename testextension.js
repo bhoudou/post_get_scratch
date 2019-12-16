@@ -1,5 +1,6 @@
 (function(ext) {
   var IDData = null;
+	var texterreur="no error";
   function updateIDLocation() {
     $.ajax({
       type: "GET",
@@ -9,7 +10,10 @@
       //url: "https://bhoudou.github.io/post_get_scratch/data.json",
       success: function(data) {IDData = data;},
       error: function(data, textStatus, errorThrown) { 
-        alert("Status: " + textStatus); alert("Error: " + errorThrown);     } 
+	      IDData = 9999;
+        alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+      var texterreur="Error: " + errorThrown;
+      } 
     });
   }
 
@@ -25,7 +29,7 @@
   };
 
   ext._getStatus = function() {
-    if (!IDData) return { status:1, msg:'no Data' };
+    if (IDData==9999) return { status:1, msg:texterreur };
 	  return { status:2, msg:'Ready' };
   };
 
