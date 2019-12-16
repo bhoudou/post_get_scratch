@@ -5,7 +5,7 @@
   function updateIDLocation() {
     $.ajax({
       type: "GET",
-      dataType: "json",
+      dataType: "jsonp",
       crossDomain: true,
       url: 'http://192.168.1.45/data.json',
       //url: "smb://192.168.1.45/partage_public/data.json",
