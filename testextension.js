@@ -4,7 +4,7 @@
     $.ajax({
       type: "GET",
       dataType: "json",
-      url: "http://192.168.1.45/data.json",
+      url: 'http://192.168.1.45/data.json',
       //url: "smb://192.168.1.45/partage_public/data.json",
       //url: "https://bhoudou.github.io/post_get_scratch/data.json",
       success: function(data) {
