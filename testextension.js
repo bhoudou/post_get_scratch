@@ -1,9 +1,9 @@
 (function(ext) {
   var IDData = null;
   var texterreur="no error";
-	fetch("http://192.168.1.45/data.json").then(function (response) {
-    return response.json();
-		    console.response.json();
+  fetch("http://192.168.1.45/data.json").then(function (response) {
+    IDData =  response.json();
+    console.response.json();
 }).then(function (json) {
     console.log(json);
 });
@@ -76,7 +76,7 @@
     // Register the extension
     ScratchExtensions.register('GPIOESP8266', descriptor, ext);
   //updateIDLocation();
-  var poller = setInterval(updateIDLocation, 2000);
+  //var poller = setInterval(updateIDLocation, 2000);
 
 })({});
 
