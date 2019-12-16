@@ -10,7 +10,7 @@
       dataType: "json",
       crossDomain: true,
 
-     url: "https://bhoudou.github.io/post_get_scratch/data.json",
+     url: "http://192.168.1.45/data.json",
       success: function(data) {console.log(data);IDData = data;},
       error: function(data, textStatus, errorThrown) { 
 	     IDData = 9999;
