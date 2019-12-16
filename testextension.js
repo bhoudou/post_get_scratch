@@ -1,6 +1,6 @@
 (function(ext) {
   var IDData = null;
-	var texterreur="no error";
+  var texterreur="no error";
   function updateIDLocation() {
     $.ajax({
       type: "GET",
@@ -11,8 +11,8 @@
       success: function(data) {IDData = data;},
       error: function(data, textStatus, errorThrown) { 
 	     IDData = 9999;
-             //alert("Status: " + textStatus); alert("Error: " + errorThrown); 
-             var texterreur="Error : "+textStatus+" type : " + errorThrown.responseText;
+	     //alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+             texterreur="Error : "+textStatus+" type : " + errorThrown.responseText;
       } 
     });
   }
