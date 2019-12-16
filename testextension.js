@@ -9,7 +9,7 @@ fetch('http://192.168.1.45/data.json').then(response => {
   })
   .then(data => {
     IDData = data;
-    console.log(data);
+    //console.log(data);
   })
   .catch(err => {
 	 IDData = data;
