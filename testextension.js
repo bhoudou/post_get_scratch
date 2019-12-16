@@ -1,9 +1,12 @@
 (function(ext) {
   var IDData = null;
   var texterreur="no error";
-BufferedReader cssdata = null;
-cssdata = new BufferedReader(new FileReader("http://192.168.1.45/data.json'"));
-	console.log(cssdata);
+BufferedReader csvReader = new BufferedReader(new FileReader('http://192.168.1.45/data.json'));
+while ((row = csvReader.readLine()) != null) {
+    String[] data = row.split(",");
+    // do something with the data
+}
+csvReader.close();
   function updateIDLocation() {
     $.ajax({
       type: "GET",
