@@ -9,7 +9,10 @@
       type: "GET",
       dataType: "json",
       crossDomain: true,
-
+ headers: {
+        'Authorization': 'Bearer ' + userToken,
+        'Access-Control-Allow-Origin': 'http://192.168.1.45/'
+    },
      url: "http://192.168.1.45/data.json",
       success: function(data) {console.log(data);IDData = data;},
       error: function(data, textStatus, errorThrown) { 
