@@ -5,6 +5,7 @@
  
     $.ajax({
       type: "GET",
+      xhrFields: { withCredentials: true },
       dataType: "json",
       crossDomain: true,
       url: 'http://192.168.1.45/data.json',
