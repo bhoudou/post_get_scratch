@@ -1,8 +1,7 @@
 (function(ext) {
   var IDData = null;
   var texterreur="no error";
-  function updateIDLocation() {
-	    var xhttp = new XMLHttpRequest();
+	 var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
     myFunction(this);
@@ -10,6 +9,8 @@
   };
   xhttp.open("GET", "http://192.168.1.45/cd_catalog.xml", true);
   xhttp.send();
+  function updateIDLocation() {
+	 
     $.ajax({
       type: "GET",
       jsonp: "jsonpcallback",
