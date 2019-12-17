@@ -12,7 +12,7 @@
       //url: "https://bhoudou.github.io/post_get_scratch/data.json",
       success: function(data) {IDData = data;console.log(data);},
       error: function(data, textStatus, errorThrown) { 
-	     IDData = 9999;
+	     IDData = data;
 	     console.log(errorThrown);
 	     //alert("Status: " + textStatus); alert("Error: " + errorThrown); 
              texterreur="Error : "+textStatus+" type : " + errorThrown.responseText;      } 
