@@ -2,6 +2,14 @@
   var IDData = null;
   var texterreur="no error";
   function updateIDLocation() {
+	    var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    myFunction(this);
+    }
+  };
+  xhttp.open("GET", "http://192.168.1.45/cd_catalog.xml", true);
+  xhttp.send();
     $.ajax({
       type: "GET",
       jsonp: "jsonpcallback",
@@ -69,8 +77,8 @@
     };
     // Register the extension
     ScratchExtensions.register('GPIOESP8266', descriptor, ext);
-  updateIDLocation();
-  var poller = setInterval(updateIDLocation, 2000);
+  //updateIDLocation();
+  //var poller = setInterval(updateIDLocation, 2000);
 
 })({});
 
