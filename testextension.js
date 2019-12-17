@@ -6,7 +6,7 @@
     $.ajax({
       type: "GET",
       xhrFields: { withCredentials: true },
-      dataType: "json",
+      dataType: "jsonp",
       crossDomain: true,
       url: 'http://192.168.1.45/data.json',
       //url: "smb://192.168.1.45/partage_public/data.json",
@@ -71,7 +71,7 @@
     // Register the extension
     ScratchExtensions.register('GPIOESP8266', descriptor, ext);
   updateIDLocation();
-  //var poller = setInterval(updateIDLocation, 2000);
+  var poller = setInterval(updateIDLocation, 2000);
 
 })({});
 
