@@ -1,17 +1,11 @@
 (function(ext) {
   var IDData = null;
   var texterreur="no error";
-BufferedReader csvReader = new BufferedReader(new FileReader('http://192.168.1.45/data.json'));
-while ((row = csvReader.readLine()) != null) {
-    String[] data = row.split(",");
-    // do something with the data
-}
-csvReader.close();
   function updateIDLocation() {
     $.ajax({
       type: "GET",
       jsonp: "jsonpcallback",
-      dataType: "jsonp",
+      //dataType: "jsonp",
       crossDomain: true,
       url: 'http://192.168.1.45/data.json',
       //url: "smb://192.168.1.45/partage_public/data.json",
@@ -75,8 +69,8 @@ csvReader.close();
     };
     // Register the extension
     ScratchExtensions.register('GPIOESP8266', descriptor, ext);
-  //updateIDLocation();
-  //var poller = setInterval(updateIDLocation, 2000);
+  updateIDLocation();
+  var poller = setInterval(updateIDLocation, 2000);
 
 })({});
 
