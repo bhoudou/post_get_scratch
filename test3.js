@@ -35,7 +35,7 @@ class Utilities {
           arguments: {
             ID: {
               type: Scratch.ArgumentType.NUMBER,
-              defaultValue: 7
+              defaultValue: 15
             },
             info: {
               type: Scratch.ArgumentType.STRING,
@@ -65,7 +65,7 @@ class Utilities {
   parseJSON({ID,info, JSON_STRING}) {
     const obj = JSON.parse(JSON_STRING);
  		  for (var i=0; i < obj.length; i++) {
-			if(ID==obj["id"]) return obj[info].toFixed(1).toString();
+			if(ID==obj[i]["id"]) return obj[i][info].toFixed(1);
 			}
    }
 
