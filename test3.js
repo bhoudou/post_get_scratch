@@ -22,7 +22,7 @@ class Utilities {
           arguments: {
             URL: {
               type: Scratch.ArgumentType.STRING,
-              defaultValue: 'https://bhoudou.github.io/post_get_scratch/data.json'
+              defaultValue: 'https://bhoudou.github.io/post_get_scratch/multipositions.json'
             }
           }
         },
@@ -43,7 +43,7 @@ class Utilities {
             },
             JSON_STRING: {
               type: Scratch.ArgumentType.STRING,
-              defaultValue: '{"data": [{"id": 15, "x": 355, "y": 252, "angle": 238}]}'
+              defaultValue: '[{"id":0,"x":25,"y":25,"angle":15},{"id":1,"x":50,"y":50,"angle":35},{"id":2,"x":60,"y":60,"angle":55}]'
             }
           }
         }
@@ -64,8 +64,8 @@ class Utilities {
 
   parseJSON({ID,info, JSON_STRING}) {
     const obj = JSON.parse(JSON_STRING);
- 		  for (var i=0; i < obj.length; i++) {
-			if(ID==obj[i]["id"]) return obj[i][info].toFixed(1);
+    for (var i=0; i < obj.length; i++) {
+			if(ID==obj[i]["id"]) return obj[i][info];
 			}
    }
 
