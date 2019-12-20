@@ -13,7 +13,19 @@ class Utilities {
       menuIconURI: icon,
 
       blocks: [
-       
+               {
+          opcode: 'fetchFrom',
+
+          blockType: Scratch.BlockType.REPORTER,
+
+          text: 'get content from [URL]',
+          arguments: {
+            URL: {
+              type: Scratch.ArgumentType.STRING,
+              defaultValue: 'https://bhoudou.github.io/post_get_scratch/data.json'
+            }
+          }
+        },
         {
           opcode: 'parseJSON',
 
@@ -23,11 +35,11 @@ class Utilities {
           arguments: {
             PATH: {
               type: Scratch.ArgumentType.STRING,
-              defaultValue: 'fruit/apples'
+              defaultValue: 'datas'
             },
             JSON_STRING: {
               type: Scratch.ArgumentType.STRING,
-              defaultValue: '{"fruit": {"apples": 2, "bananas": 3}, "total_fruit": 5}'
+              defaultValue: '{"data": [{"id": 15, "x": 355, "y": 252, "angle": 238}]}'
             }
           }
         }
