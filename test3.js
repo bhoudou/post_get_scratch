@@ -31,11 +31,15 @@ class Utilities {
 
           blockType: Scratch.BlockType.REPORTER,
 
-          text: '[PATH] of [JSON_STRING]',
+          text: '[ID] [info] of [JSON_STRING]',
           arguments: {
-            PATH: {
+            ID: {
+              type: Scratch.ArgumentType.NUMBER,
+              defaultValue: 7
+            },
+            info: {
               type: Scratch.ArgumentType.STRING,
-              defaultValue: 'datas'
+              defaultValue: 'angle'
             },
             JSON_STRING: {
               type: Scratch.ArgumentType.STRING,
@@ -58,26 +62,12 @@ class Utilities {
     });
   }
 
-  parseJSON({PATH, JSON_STRING}) {
-    try {
-      const path = PATH.toString().split('/').map(prop => decodeURIComponent(prop));
-      if (path[0] === '') path.splice(0, 1);
-      if (path[path.length - 1] === '') path.splice(-1, 1);
-      let json;
-      try {
-        json = JSON.parse(' ' + JSON_STRING);
-      } catch (e) {
-        return e.message;
-      }
-      path.forEach(prop => json = json[prop]);
-      if (json === null) return 'null';
-      else if (json === undefined) return '';
-      else if (typeof json === 'object') return JSON.stringify(json);
-      else return json.toString();
-    } catch (err) {
-      return '';
-    }
-  }
+  parseJSON({ID,info, JSON_STRING}) {
+    const obj = JSON.parse(JSON_STRING);
+ 		  for (var i=0; i < obj.length; i++) {
+			if(ID==obj["id"]) return obj[info].toFixed(1).toString();
+			}
+   }
 
   
 
