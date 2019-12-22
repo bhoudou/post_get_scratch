@@ -22,7 +22,7 @@ class Utilities {
           arguments: {
             URL: {
               type: Scratch.ArgumentType.STRING,
-              defaultValue: 'https://bhoudou.github.io/post_get_scratch/multipositions.json'
+              defaultValue: 'https://192.168.1.45/data.json'
             }
           }
         },
@@ -57,7 +57,7 @@ class Utilities {
 
   fetchFrom({URL}) {
     return new Promise(resolve => {
-      fetch(URL).then(res => res.text()).then(resolve)
+      fetch(URL+ LocalDateTime.now()).then(res => res.text()).then(resolve)
       .catch(err => resolve(''));
     });
   }
