@@ -57,7 +57,7 @@ class Utilities {
 
   fetchFrom({URL}) {
     return new Promise(resolve => {
-      fetch(URL+"?="+Math.random()).then(res => res.text()).then(resolve)
+      fetch(URL).then(res => res.text()).then(resolve)
       .catch(err => resolve(''));
     });
   }
